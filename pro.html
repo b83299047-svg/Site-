@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: "Vazirmatn" sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #34495e;
+            color: #fff;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 22px;
+        }
+
+        .header button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .header button:hover {
+            background-color: #c0392b;
+        }
+
+        main#profile {
+            max-width: 600px;
+            background-color: #fff;
+            margin: 50px auto;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #profile h2 {
+            font-size: 20px;
+            color: #2c3e50;
+            border-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        #profile p {
+            font-size: 16px;
+            margin: 12px 0;
+            line-height: 1.7;
+        }
+
+        #profile strong {
+            color: #27ae60;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>پروفایل کاربر</h1>
+        <nav>
+            <button id="logoutBtn"></button>
+        </nav>
+    </header>
+    <main id="profile">
+        <h2>اطلاعات کاربر</h2>
+        <p><strong>نام:</strong> <span id="userName"></span></p>
+        <p><strong></strong> <span id="userEmail"></span></p>
+    </main>
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+        const userName = document.getElementById("userName");
+        const userEmail = document.getElementById("logoutBtn");
+
+        if (user) {
+            userName.textContent = user.name;
+            userEmail.textContent = user.email;
+        } else {
+            window.location.href = "login.html";
+        }
+        logouBtn.addEventListener("click", () => {
+            localStorage.removeItem("user");
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+
+</html>

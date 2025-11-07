@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Vazir" sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #e63946, #ff6b6b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            direction: rtl;
+        }
+
+        .admin-box {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #e63946;
+            margin-bottom: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f8f8f8;
+        }
+
+        input [type=password] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background: #e63946;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #d62828;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-box" id="login-section">
+        <h2>ورود مدیر</h2>
+        <input type="password" id="adminpass" placeholder="رمز مدیر را وارد کنید">
+        <button id="adminLigin">ورود</button>
+    </div>
+    <div class="admin-box hidden" id="panel-section">
+        <h2>پنل مدیر کاربران</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>نام و نام خانوادگی</th>
+                    <th>شماره موبایل</th>
+                    <th>رمز عبور</th>
+                </tr>
+            </thead>
+            <tbody id="userTable"></tbody>
+        </table>
+
+    </div>
+    <script>
+        const adminPassword = '1234';
+        const loginSection = document.getElementById('login-section');
+        const panelsection = document.getElementById('panelsection');
+        const adminLogonBtn = document.getElementById('adminLogin');
+        const adminPassInput = document.getElementById('adminPassInput');
+        const userTable = document.getElementById('userTable');
+
+        adminLogonBtn.addEventListener('click',()=>{
+            const enteredpass=adminPassInput.value.trim();
+            if(enteredpass === adminPassword){
+                loginSection.classList.add('hidden');
+                panelsection.classList.remove('hidden');
+                loasUsers();
+            } else{
+                alert("رمز مدیر اشتباه هست");
+            }
+        });
+
+        function loasUsers(){
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            userTable.innerHTML = '';
+            if (users.length === 0) {
+                userTable.innerHTML = '<tr><td colspan = "3"> هیچ کاربری ثبت نشده.</td></tr>';
+                return;
+            }
+            users.forEach(u => {
+                const row=document.createElement('tr');
+                row.innerHTML = `<td>${u.name}</td><td>${u.phone}</td><td>${u.password}<td>`;
+                    userTable.appendChild(row);
+            });
+        }
+    </script>
+</body>
+
+</html>

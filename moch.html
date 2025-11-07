@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جزئیات محصول</title>
+    <style>
+        @import url('');
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .product-page {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .product-image {
+            flex: 1 1 400px;
+            background: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-image img {
+            width: 90%;
+            border-radius: 12px;
+        }
+
+        .product-info {
+            flex: 1 1 500px;
+            padding: 2rem;
+        }
+
+        .product-info h1 {
+            font-size: 1.5rem;
+        }
+
+        .price {
+            color: #e63946;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .colors {
+            margin: 1rem 0;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 8px;
+        }
+
+        .color {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .color:hover {
+            transform: scale(1.1);
+            border-color: #000;
+        }
+
+        .buy-btn {
+            background-color: #e6123d;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .buy-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .specs {
+            margin-top: 1.5rem;
+        }
+
+        .specs ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .specs li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comments-section {
+            max-width: 1100px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgb(233, 12, 60);
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            height: 80px;
+            padding: 0.7rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: none;
+            font-family: inherit;
+        }
+
+        .comment-form button {
+            width: 120px;
+            align-self: flex-end;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        .comment-form button:hover {
+            background: #218838;
+        }
+
+        .comment-list {
+            margin-top: 1rem;
+        }
+
+        .comment {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-page {
+                flex-direction: column;
+                margin: 1rem;
+            }
+
+            .product-info {
+                padding: 1rem;
+            }
+
+            .product-image img {
+                width: 100%;
+            }
+
+            .buy-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="product-page">
+        <div class="product-image">
+            <img src="https://dkstatics-public.digikala.com/digikala-products/1e63af384d7e6d81007c2dc14666c8119ebc377c_1757848250.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80"
+                alt="عکس کالا">
+        </div>
+
+        <div class="product-info">
+            <h1>گوشی موبایل سامسونگ مدل A55</h1>
+            <p class="price">قیمت: <strong>۱۸,۵۰۰,۰۰۰ تومان</strong></p>
+
+            <div class="colors">
+                <p>رنگ‌ها:</p>
+                <div class="color-options">
+                    <span class="color" style="background-color: black;" title="مشکی"></span>
+                    <span class="color" style="background-color: silver;" title="نقره‌ای"></span>
+                    <span class="color" style="background-color: blue;" title="آبی"></span>
+                </div>
+            </div>
+
+            <button class="buy-btn">افزودن به سبد خرید </button>
+
+            <div class="specs">
+                <h2>مشخصات کالا</h2>
+                <ul>
+                    <li>نمایشگر: ۶.۵ اینچ Super AMOLED</li>
+                    <li>حافظه: ۱۲۸ گیگابایت</li>
+                    <li>رم: ۸ گیگابایت</li>
+                    <li>دوربین اصلی: ۶۴ مگاپیکسل</li>
+                    <li>باتری: ۵۰۰۰ میلی‌آمپرساعت</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="comments-section">
+        <h2>نظرات کاربران 💬</h2>
+
+        <div class="comment-form">
+            <textarea placeholder="نظر خود را بنویسید..."></textarea>
+            <button id="sendComment">ارسال نظر</button>
+        </div>
+
+        <div class="comment-list" id="commentList">
+            <p class="no-comment">هنوز نظری ثبت نشده است.</p>
+        </div>
+    </div>
+    <script>
+        const sendBtn = document.getElementById("sendComment");
+        const commentList = document.getElementById("commentList");
+        const textarea = document.querySelector("textarea");
+
+        sendBtn.addEventListener("click", () => {
+            const text = textarea.value.trim();
+            if (text === "") return;
+
+            const comment = document.createElement("div");
+            comment.classList.add("comment");
+            comment.textContent = text;
+            commentList.appendChild(comment);
+
+            textarea.value = "";
+            document.querySelector(".no-comment")?.remove();
+        });
+    </script>
+</body>
+
+</html>
