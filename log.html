@@ -1,98 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            font-family: "Vazirmatn" sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحه ورود</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap');
 
-        .login-container {
-            background: white;
-            width: 350px;
-            top: 0;
-            left: 0;
-            background: rgb(221, 220, 220);
-            margin: 80px auto;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgb(233, 12, 60);
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Vazirmatn', sans-serif;
+    }
 
-        .login-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #e6123d;
-        }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e6123d, #ffffff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: bgMove 6s ease-in-out infinite alternate;
+    }
 
-        .login-container label {
-            display: block;
-            margin-bottom: 5px;
-            text-align: right;
-        }
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
 
-        .login-container input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-        }
+    .login-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 360px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      animation: fadeIn 1.5s ease;
+    }
 
-        .login-container button {
-            width: 100%;
-            background: #e6123d;
-            color: black;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .login-container button:hover {
-            background-color: #e03d5e;
-        }
-    </style>
+    .login-box h2 {
+      color: #fff;
+      margin-bottom: 25px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      font-size: 22px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 14px 16px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 12px;
+      outline: none;
+      background: rgba(255,255,255,0.9);
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .login-box input:focus {
+      box-shadow: 0 0 10px #e6123d;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 12px;
+      background: #e6123d;
+      color: white;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background: white;
+      color: #e6123d;
+      box-shadow: 0 0 12px #e6123d;
+    }
+
+    .login-box p {
+      color: white;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .login-box a {
+      color: #ffe4e4;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-box a:hover {
+      text-decoration: underline;
+    }
+
+    
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 30px 20px;
+      }
+      .login-box h2 {
+        font-size: 20px;
+      }
+      .login-box input,
+      .login-box button {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="login-container">
-        <h2>ورود به حساب</h2>
-        <form id="loginForm">
-            <label>نام کاربری</label>
-            <input type="text" id="name" required>
-
-            <label>ایمیل</label>
-            <input type="email" id="email" required>
-
-            <label>رمز عبور</label>
-            <input type="password" id="password" required>
-
-            <button type="submit">ورود</button>
-        </form>
-    </div>
-    <script>
-        const form = document.getElementById("loginForm");
-        form.addEventListener("submit", e => {
-            e.preventDefault();
-
-            const user = {
-                name: document.getElementById("name").value,
-                email: document.getElementById("email").value,
-            };
-
-            localStorage.setItem("user", JSON.stringify(user));
-
-            window.location.href = "index.html";
-        })
-    </script>
+  <div class="login-box">
+    <h2>ورود به حساب</h2>
+    <form>
+      <input type="text" placeholder="نام کاربری" required>
+      <input type="password" placeholder="رمز عبور" required>
+      <button type="submit">ورود</button>
+    </form>
+    <p>حساب کاربری ندارید؟ <a href="#">ثبت‌نام کنید</a></p>
+  </div>
 </body>
-
 </html>
